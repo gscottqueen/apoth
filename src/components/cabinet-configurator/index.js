@@ -12,9 +12,14 @@ import {FieldSet, Select, Legend} from '../index'
 import { DEPTH_RANGE, WIDTH_RANGE, HEIGHT_RANGE } from '../../constants'
 
 const CabinetConfigurator = ({setWidth, setHeight, setDepth}) => {
-  setWidth(document.getElementById("width").value);
-  setHeight(document.getElementById("height").value);
-  setDepth(document.getElementById("depth").value);
+
+  const width = document.getElementById("width")
+  const height = document.getElementById("width")
+  const depth = document.getElementById("width")
+
+  width && setWidth(width.value);
+  height && setHeight(height.value);
+  depth && setDepth(depth.value);
 
   return (
   <>
