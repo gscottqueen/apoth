@@ -11,7 +11,11 @@
 import {FieldSet, Select, Legend} from '../index'
 import { DEPTH_RANGE, WIDTH_RANGE, HEIGHT_RANGE } from '../../constants'
 
-const CabinetConfigurator = ({setWidth, setHeight}) => {
+const CabinetConfigurator = ({setWidth, setHeight, setDepth}) => {
+  setWidth(document.getElementById("width").value);
+  setHeight(document.getElementById("height").value);
+  setDepth(document.getElementById("depth").value);
+
   return (
   <>
     <Legend>Select dimensions for your cabinet.</Legend>
@@ -20,7 +24,8 @@ const CabinetConfigurator = ({setWidth, setHeight}) => {
         id="depth"
         labelFor="Depth: "
         options={DEPTH_RANGE}
-        unit="inches"/>
+        unit="inches"
+        onChange={e => setDepth(e.target.value)}/>
       <Select
         id="width"
         labelFor="Width: "
