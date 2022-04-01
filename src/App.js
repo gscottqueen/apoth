@@ -16,17 +16,19 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Apoth</h1>
-      <form>
-        <CabinetConfigurator
-          setWidth={setWidth}
-          setHeight={setHeight}
-          setDepth={setDepth}/>
-      </form>
-      <Carcas
-        width={scaleMeasurement(width)}
-        height={scaleMeasurement(height)}
-        depth={scaleMeasurement(depth)}/>
       </header>
+      <main id="main-content">
+        <form>
+          <CabinetConfigurator
+            setWidth={setWidth}
+            setHeight={setHeight}
+            setDepth={setDepth}/>
+        </form>
+        <Carcas
+          width={scaleMeasurement(width)}
+          height={scaleMeasurement(height)}
+          depth={scaleMeasurement(depth)}/>
+      </main>
     </div>
   );
 }
