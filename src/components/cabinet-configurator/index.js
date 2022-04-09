@@ -11,7 +11,7 @@
 import {FieldSet, Select, Legend} from '../index'
 import { DEPTH_RANGE, WIDTH_RANGE, HEIGHT_RANGE } from '../../constants'
 
-const CabinetConfigurator = ({ width, height, depth, setWidth, setHeight, setDepth }) => {
+const CabinetConfigurator = ({ width, height, depth, setWidth, setHeight, setDepth}) => {
 
   return (
   <>
