@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import {CabinetConfigurator, Carcas} from './components'
+import { CabinetConfigurator, Carcas } from './components'
 
 function App() {
 
-  const [width, setWidth] = useState(48)
-  const [height, setHeight] = useState(36)
-  const [depth, setDepth] = useState(20)
+  const [width, setWidth] = useState(8)
+  const [height, setHeight] = useState(8)
+  const [depth, setDepth] = useState(8)
 
   // pixels to inches at 1/6 scale
   function scaleMeasurement(value) {
