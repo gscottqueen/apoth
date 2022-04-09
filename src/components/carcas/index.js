@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { Canvas } from '../index'
+import { DEPTH_RANGE } from '../../constants';
 
 // Colour adjustment function
 // Nicked from http://stackoverflow.com/questions/5560248
@@ -59,14 +60,14 @@ const Carcas = ({width, height, depth}) => {
     const ctx = canvas.getContext('2d');
 
     // Pick out the form elements for easy access later
-    const y = document.querySelector('#y');
+    console.log(DEPTH_RANGE.slice(-1)[0])
     const color = '#FFFFFF';
     // clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawCube(
+    drawCube( // ctx, x, y, wx, h, wy, color
       ctx,
       window.innerWidth/2,
-      window.innerHeight/2 + y/2,
+      window.innerHeight/2 + DEPTH_RANGE.slice(-1)[0],
       Number(width),
       Number(height),
       Number(depth),
