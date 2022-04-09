@@ -1,15 +1,5 @@
-// Set up our canvas
-const canvas = document.createElement('canvas');
-canvas.width = 1080;
-canvas.height = 1080;
-document.body.appendChild(canvas);
-const ctx = canvas.getContext('2d');
-
-// Pick out the form elements for easy access later
-const x1 = document.querySelector('#x1');
-const x2 = document.querySelector('#x2');
-const y = document.querySelector('#y');
-const color = '#FFFFFF';
+import { useRef, useEffect } from 'react'
+import { Canvas } from '../index'
 
 // Colour adjustment function
 // Nicked from http://stackoverflow.com/questions/5560248
@@ -23,7 +13,7 @@ const shadeColor = (color, percent) => {
 }
 
 // Draw a cube to the specified specs
-function drawCube(x, y, wx, h, wy, color) {
+function drawCube(ctx, x, y, wx, h, wy, color) {
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x - wx, y - wx * 0.5);
@@ -59,18 +49,34 @@ function drawCube(x, y, wx, h, wy, color) {
 
 const Carcas = ({width, height, depth}) => {
   console.log(width, height, depth)
-  // clear the canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const canvasElement = useRef(null)
+
+  useEffect(() => {
+
+    // Set up our canvas
+    const canvas = canvasElement.current;
+    const ctx = canvas.getContext('2d');
+
+    // Pick out the form elements for easy access later
+    const y = document.querySelector('#y');
+    const color = '#FFFFFF';
+    // clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawCube(
+      ctx,
+      window.innerWidth/2,
+      window.innerHeight/2 + y/2,
+      Number(width),
+      Number(height),
+      Number(depth),
+      color
+    );
+
+  })
 
   // draw the cube
-  return drawCube(
-    window.innerWidth/2,
-    window.innerHeight/2 + y/2,
-    Number(width && width),
-    Number(height && height),
-    Number(depth && depth),
-    color
-  );
+  return <Canvas width='1080' height='1080' elementRef={canvasElement} />
 }
 
   export default Carcas;
