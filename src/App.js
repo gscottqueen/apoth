@@ -3,7 +3,7 @@ import { CabinetConfigurator, Carcas } from './components'
 
 function App() {
 
-  const [width, setWidth] = useState(8)
+  const [width, setWidth] = useState(16)
   const [height, setHeight] = useState(8)
   const [depth, setDepth] = useState(8)
 
@@ -20,6 +20,9 @@ function App() {
       <main id="main-content">
         <form>
           <CabinetConfigurator
+            width={width}
+            height={height}
+            depth={depth}
             setWidth={setWidth}
             setHeight={setHeight}
             setDepth={setDepth}/>
