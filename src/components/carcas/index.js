@@ -23,7 +23,7 @@ const shadeColor = (color, percent) => {
 }
 
 // Draw a cube to the specified specs
-function drawCube(x, y, wx, wy, h, color) {
+function drawCube(x, y, wx, h, wy, color) {
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x - wx, y - wx * 0.5);
@@ -58,7 +58,7 @@ function drawCube(x, y, wx, wy, h, color) {
   }
 
 const Carcas = ({width, height, depth}) => {
-  console.log(width, height)
+  console.log(width, height, depth)
   // clear the canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
