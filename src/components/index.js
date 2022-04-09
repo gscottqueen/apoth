@@ -1,4 +1,5 @@
 export { default as CabinetConfigurator } from './cabinet-configurator'
+export { default as Canvas } from './canvas'
 export { default as Carcas } from './carcas'
 export { default as FieldSet } from './fieldset'
 export { default as Input } from './input'
